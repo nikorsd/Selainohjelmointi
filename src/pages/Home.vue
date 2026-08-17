@@ -2,7 +2,7 @@
     <div>
         <h1>Kotkantien maalaus- ja tapetointi</h1>
         <h2>Kotimaista suunnittelua</h2>
-        <button class="btn btn-secondary">Click me</button>
+        <button class="btn btn-secondary" @click="$router.push('/studio')">Suunnittelu studio</button>
     </div>
 </template>
 

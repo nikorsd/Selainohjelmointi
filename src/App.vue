@@ -1,6 +1,6 @@
 <script setup>
-import Home from './pages/Home.vue'
-import Navbar from './components/Navbar.vue'
+    import Home from './pages/Home.vue'
+    import Navbar from './components/Navbar.vue'
 </script>
 
 <template>
@@ -10,10 +10,7 @@ import Navbar from './components/Navbar.vue'
 
 <style scoped>
     .nav {
-        position: fixed;
         left: 0;
         right: 0;
-        height: 35px;
-        padding: 8px;
     }
 </style>
