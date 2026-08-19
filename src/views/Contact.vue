@@ -9,7 +9,8 @@
             <input class="form-control subject" @keydown="checkFields()" v-model="subject" type="text" placeholder="Aihe">
             <h5>Viestisi</h5>
             <textarea name="Sähköposti" @keydown="checkFields()" v-model="message" id=""></textarea>
-            <button class="btn-primary btn" :disabled="disableButton" @click="send()">Lähetä</button>
+            <h5 v-if="showSuccess">Viesti lähetetty!</h5>
+            <button v-else class="btn-primary btn" :disabled="disableButton" @click="send()">Lähetä</button>
         </div>
     </body>
 </template>
@@ -23,6 +24,7 @@
                 subject: "",
                 message: "",
                 disableButton: true,
+                showSuccess: false,
             }
         },
         methods: {
@@ -42,6 +44,7 @@
                 this.subject = ""
                 this.message = ""
                 this.disableButton = true
+                this.showSuccess = true
             }
         }
     }
@@ -59,7 +62,7 @@
     }
 
     .card {
-        background-color: rgb(98, 145, 73);
+        background-color: rgb(200, 200, 200);
         padding: 2%;
         border-radius: 25px;
         display: flex;
@@ -76,13 +79,11 @@
 
     h3 {
         text-align: center;
-        color: white;
     }
 
     h5 {
         text-align: center;
         margin-top: 15px;
-        color: white;
     }
 
     .btn-primary, .btn-secondary {
