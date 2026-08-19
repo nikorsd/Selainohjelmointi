@@ -2,7 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import Contact from '../views/Contact.vue'
 import About from '../views/About.vue'
-import Studio from '../views/Studio.vue'
+import WallStudio from '../views/Studio/Wall.vue'
+import PaletteStudio from '../views/Studio/Palette.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -24,9 +25,14 @@ const router = createRouter({
       component: About
     },
     {
-        path: '/studio',
-        name: 'studio',
-        component: Studio
+        path: '/studio/wall',
+        name: 'wall-editor',
+        component: WallStudio
+    },
+    {
+        path: '/studio/palette',
+        name: 'palette-editor',
+        component: PaletteStudio
     }
   ]
 })

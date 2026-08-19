@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" @click="$router.push('/')">
-                <img src="../assets/logo_ai.png" alt="Bootstrap" height="50">
+                <img src="../assets/logo_ai.webp" alt="Bootstrap" height="50">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -17,6 +17,15 @@
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" :class="{ active: currentRoute === '/about' }" @click="$router.push('/about')">Tietoa meistä</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Studio
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" :class="{ active: currentRoute === '/studio/wall' }" @click="$router.push('/studio/wall')">Seinien värjäys</a></li>
+                        <li><a class="dropdown-item" :class="{ active: currentRoute === '/studio/palette' }" @click="$router.push('/studio/palette')">Paletti rakentaja</a></li>
+                    </ul>
                 </li>
             </ul>
             </div>
@@ -38,12 +47,21 @@
         cursor: pointer;
     }
 
-    .nav-link.active {
+    .nav-link.active, .dropdown-item.active {
         font-weight: 800 !important;
+    }
+
+    .dropdown-item.active {
+        background-color: white;
+        color: black;
     }
 
     .nav-link {
         cursor: pointer;
         transition: font-weight 0.3s ease;
+    }
+
+    .dropdown-item {
+        cursor: pointer;
     }
 </style>
