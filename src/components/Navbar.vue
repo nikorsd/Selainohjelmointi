@@ -18,6 +18,9 @@
                 <li class="nav-item">
                 <a class="nav-link" :class="{ active: currentRoute === '/about' }" @click="$router.push('/about')">Tietoa meistä</a>
                 </li>
+                <li class="nav-item">
+                <a class="nav-link" :class="{ active: currentRoute === '/gallery' }" @click="$router.push('/gallery')">Galleria</a>
+                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Studio

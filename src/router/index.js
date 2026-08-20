@@ -4,6 +4,7 @@ import Contact from '../views/Contact.vue'
 import About from '../views/About.vue'
 import WallStudio from '../views/Studio/Wall.vue'
 import PaletteStudio from '../views/Studio/Palette.vue'
+import Gallery from '../views/Gallery.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -33,7 +34,12 @@ const router = createRouter({
         path: '/studio/palette',
         name: 'palette-editor',
         component: PaletteStudio
-    }
+    },
+    {
+      path: '/gallery',
+      name: 'gallery',
+      component: Gallery
+    },
   ]
 })
 
