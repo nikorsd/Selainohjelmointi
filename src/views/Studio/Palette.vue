@@ -1,28 +1,43 @@
 <template>
     <body>
-        <img src="../../assets/studio/livingroom/room2.png">
+        <div class="palette-wrapper">
+            <div style="background-color: red;"></div>
+            <div style="background-color: green;"></div>
+            <div style="background-color: blue;"></div>
+        </div>
         <hr>
         <div class="colorpicker">
-            <!--Used AI to set all the colors to the right places-->
-            <div class="fiesta" style="background-color: #DD4132;"></div>
-            <div class="jester-red" style="background-color: #9E1030;"></div>
-            <div class="turmeric" style="background-color: #FE840E;"></div>
-            <div class="living-coral" style="background-color: #FF6F61;"></div>
-            <div class="pink-peacock" style="background-color: #C62168;"></div>
-            <div class="pepper-stem" style="background-color: #8D9440;"></div>
-            <div class="aspen-gold" style="background-color: #FFD662;"></div>
-            <div class="princess-blue" style="background-color: #00539C;"></div>
-            <div class="toffee" style="background-color: #755139;"></div>
-            <div class="mango-mojito" style="background-color: #D69C2F;"></div>
-            <div class="terrarium-moss" style="background-color: #616247;"></div>
-            <div class="sweet-lilac" style="background-color: #E8B5CE;"></div>
-            <div class="soybean" style="background-color: #D2C29D;"></div>
-            <div class="eclipse" style="background-color: #343148;"></div>
-            <div class="sweet-corn" style="background-color: #F0EAD6;"></div>
-            <div class="brown-granite" style="background-color: #615550;"></div>
+            <div v-for="color in colors" :key="color.hex" :class="['color-swatch', { selected: backgroundColor === color.hex }]" :style="{ backgroundColor: color.hex }" @click="backgroundColor = color.hex" :title="color.name"></div>
         </div>
     </body>
 </template>
+
+<script setup>
+import { ref } from 'vue';
+
+const room = ref('room3');
+const backgroundColor = ref('#615550');
+
+// Used AI to make this array
+const colors = [
+    { name: 'Fiesta', hex: '#DD4132' },
+    { name: 'Jester Red', hex: '#9E1030' },
+    { name: 'Turmeric', hex: '#FE840E' },
+    { name: 'Living Coral', hex: '#FF6F61' },
+    { name: 'Pink Peacock', hex: '#C62168' },
+    { name: 'Pepper Stem', hex: '#8D9440' },
+    { name: 'Aspen Gold', hex: '#FFD662' },
+    { name: 'Princess Blue', hex: '#00539C' },
+    { name: 'Toffee', hex: '#755139' },
+    { name: 'Mango Mojito', hex: '#D69C2F' },
+    { name: 'Terrarium Moss', hex: '#616247' },
+    { name: 'Sweet Lilac', hex: '#E8B5CE' },
+    { name: 'Soybean', hex: '#D2C29D' },
+    { name: 'Eclipse', hex: '#343148' },
+    { name: 'Sweet Corn', hex: '#F0EAD6' },
+    { name: 'Brown Granite', hex: '#615550' },
+];
+</script>
 
 <style scoped>
     body {
@@ -37,18 +52,56 @@
 
     img {
         height: 40vh;
+        transition: background-color 0.5s ease-in-out, transform 0.1s ease-in-out;
+    }
+
+    img:hover {
+        transform: scale(1.10);
+    }
+
+    .palette-wrapper {
+        display: flex;
+        width: 80vw;
+        height: 80vh;
+    }
+
+    .palette-wrapper div {
+        width: 100px;
+        height: auto;
+    }
+
+    .form-select {
+        border: 2.5px solid;
     }
 
     .colorpicker {
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(8, 48px);
         align-items: center;
         justify-content: center;
-        gap: 10px;
+        gap: 12px;
     }
 
-    .colorpicker div {
-        width: 40px;
-        height: 40px;
-        border-radius: 40px;
+    .color-swatch {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: transform 0.1s ease, box-shadow 0.1s ease, box-shadow 0.15s ease-in;
+        border: 3px solid transparent;
+    }
+
+    .color-swatch:hover {
+        transform: scale(1.10);
+    }
+
+    .color-swatch:active {
+        transform: scale(1);
+    }
+
+    .color-swatch.selected {
+        border: dashed;
+        border-color: #fff;
+        box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.2);
     }
 </style>
