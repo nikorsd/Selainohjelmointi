@@ -1,10 +1,6 @@
 <template>
     <body>
-        <div class="palette-wrapper">
-            <div style="background-color: red;"></div>
-            <div style="background-color: green;"></div>
-            <div style="background-color: blue;"></div>
-        </div>
+        <PaletteView></PaletteView>
         <hr>
         <div class="colorpicker">
             <div v-for="color in colors" :key="color.hex" :class="['color-swatch', { selected: backgroundColor === color.hex }]" :style="{ backgroundColor: color.hex }" @click="backgroundColor = color.hex" :title="color.name"></div>
@@ -14,6 +10,7 @@
 
 <script setup>
 import { ref } from 'vue';
+import PaletteView from '../../components/PaletteView.vue';
 
 const room = ref('room3');
 const backgroundColor = ref('#615550');
