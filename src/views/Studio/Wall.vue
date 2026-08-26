@@ -16,30 +16,30 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+    import { ref } from 'vue';
 
-const room = ref('room3');
-const backgroundColor = ref('#615550');
+    const room = ref('room3');
+    const backgroundColor = ref('#615550');
 
-// Used AI to make this array
-const colors = [
-    { name: 'Fiesta', hex: '#DD4132' },
-    { name: 'Jester Red', hex: '#9E1030' },
-    { name: 'Turmeric', hex: '#FE840E' },
-    { name: 'Living Coral', hex: '#FF6F61' },
-    { name: 'Pink Peacock', hex: '#C62168' },
-    { name: 'Pepper Stem', hex: '#8D9440' },
-    { name: 'Aspen Gold', hex: '#FFD662' },
-    { name: 'Princess Blue', hex: '#00539C' },
-    { name: 'Toffee', hex: '#755139' },
-    { name: 'Mango Mojito', hex: '#D69C2F' },
-    { name: 'Terrarium Moss', hex: '#616247' },
-    { name: 'Sweet Lilac', hex: '#E8B5CE' },
-    { name: 'Soybean', hex: '#D2C29D' },
-    { name: 'Eclipse', hex: '#343148' },
-    { name: 'Sweet Corn', hex: '#F0EAD6' },
-    { name: 'Brown Granite', hex: '#615550' },
-];
+    // Used AI to make this array
+    const colors = [
+        { name: 'Fiesta', hex: '#DD4132' },
+        { name: 'Jester Red', hex: '#9E1030' },
+        { name: 'Turmeric', hex: '#FE840E' },
+        { name: 'Living Coral', hex: '#FF6F61' },
+        { name: 'Pink Peacock', hex: '#C62168' },
+        { name: 'Pepper Stem', hex: '#8D9440' },
+        { name: 'Aspen Gold', hex: '#FFD662' },
+        { name: 'Princess Blue', hex: '#00539C' },
+        { name: 'Toffee', hex: '#755139' },
+        { name: 'Mango Mojito', hex: '#D69C2F' },
+        { name: 'Terrarium Moss', hex: '#616247' },
+        { name: 'Sweet Lilac', hex: '#E8B5CE' },
+        { name: 'Soybean', hex: '#D2C29D' },
+        { name: 'Eclipse', hex: '#343148' },
+        { name: 'Sweet Corn', hex: '#F0EAD6' },
+        { name: 'Brown Granite', hex: '#615550' },
+    ];
 </script>
 
 <style scoped>
@@ -58,7 +58,7 @@ const colors = [
     }
 
     img {
-        height: 40vh;
+        height: 50vh;
         transition: background-color 0.5s ease-in-out, transform 0.1s ease-in-out;
     }
 

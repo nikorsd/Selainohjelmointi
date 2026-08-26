@@ -1,39 +1,53 @@
 <template>
     <body>
-        <PaletteView></PaletteView>
+        <div class="palette-wrapper">
+            <div v-for="(region, index) in regions" :key="index" :class="['region-box', { selected: selectedRegion === index }]" :style="{ backgroundColor: region.color }" @click="selectedRegion = index"></div>
+        </div>
         <hr>
         <div class="colorpicker">
-            <div v-for="color in colors" :key="color.hex" :class="['color-swatch', { selected: backgroundColor === color.hex }]" :style="{ backgroundColor: color.hex }" @click="backgroundColor = color.hex" :title="color.name"></div>
+            <div v-for="color in colors" :key="color.hex" class="color-swatch" :style="{ backgroundColor: color.hex }" @click="applyColor(color.hex)" :title="color.name"></div>
         </div>
     </body>
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import PaletteView from '../../components/PaletteView.vue';
+    import { ref } from 'vue';
 
-const room = ref('room3');
-const backgroundColor = ref('#615550');
+    const selectedRegion = ref(null);
+    const selectedColor = ref('#615550');
 
-// Used AI to make this array
-const colors = [
-    { name: 'Fiesta', hex: '#DD4132' },
-    { name: 'Jester Red', hex: '#9E1030' },
-    { name: 'Turmeric', hex: '#FE840E' },
-    { name: 'Living Coral', hex: '#FF6F61' },
-    { name: 'Pink Peacock', hex: '#C62168' },
-    { name: 'Pepper Stem', hex: '#8D9440' },
-    { name: 'Aspen Gold', hex: '#FFD662' },
-    { name: 'Princess Blue', hex: '#00539C' },
-    { name: 'Toffee', hex: '#755139' },
-    { name: 'Mango Mojito', hex: '#D69C2F' },
-    { name: 'Terrarium Moss', hex: '#616247' },
-    { name: 'Sweet Lilac', hex: '#E8B5CE' },
-    { name: 'Soybean', hex: '#D2C29D' },
-    { name: 'Eclipse', hex: '#343148' },
-    { name: 'Sweet Corn', hex: '#F0EAD6' },
-    { name: 'Brown Granite', hex: '#615550' },
-];
+    const regions = ref([
+        { color: '#9E1030' },
+        { color: '#DD4132' },
+        { color: '#FE840E' },
+    ]);
+
+    const applyColor = (hex) => {
+        selectedColor.value = hex;
+        if (selectedRegion.value !== null) {
+            regions.value[selectedRegion.value].color = hex;
+        }
+    };
+
+    // Used AI to make this array
+    const colors = [
+        { name: 'Fiesta', hex: '#DD4132' },
+        { name: 'Jester Red', hex: '#9E1030' },
+        { name: 'Turmeric', hex: '#FE840E' },
+        { name: 'Living Coral', hex: '#FF6F61' },
+        { name: 'Pink Peacock', hex: '#C62168' },
+        { name: 'Pepper Stem', hex: '#8D9440' },
+        { name: 'Aspen Gold', hex: '#FFD662' },
+        { name: 'Princess Blue', hex: '#00539C' },
+        { name: 'Toffee', hex: '#755139' },
+        { name: 'Mango Mojito', hex: '#D69C2F' },
+        { name: 'Terrarium Moss', hex: '#616247' },
+        { name: 'Sweet Lilac', hex: '#E8B5CE' },
+        { name: 'Soybean', hex: '#D2C29D' },
+        { name: 'Eclipse', hex: '#343148' },
+        { name: 'Sweet Corn', hex: '#F0EAD6' },
+        { name: 'Brown Granite', hex: '#615550' },
+    ];
 </script>
 
 <style scoped>
@@ -47,28 +61,24 @@ const colors = [
         gap: 10px;
     }
 
-    img {
-        height: 40vh;
-        transition: background-color 0.5s ease-in-out, transform 0.1s ease-in-out;
-    }
-
-    img:hover {
-        transform: scale(1.10);
-    }
-
     .palette-wrapper {
         display: flex;
         width: 80vw;
-        height: 80vh;
+        height: 50vh;
+        border: 5px solid #000;
     }
 
-    .palette-wrapper div {
-        width: 100px;
-        height: auto;
+    .palette-wrapper > * {
+        flex: 1;
     }
 
-    .form-select {
-        border: 2.5px solid;
+    .region-box {
+        transition: background-color 0.5s ease;
+        cursor: pointer;
+    }
+
+    .region-box.selected {
+        border: 2.5px dashed #fff;
     }
 
     .colorpicker {
@@ -94,11 +104,5 @@ const colors = [
 
     .color-swatch:active {
         transform: scale(1);
-    }
-
-    .color-swatch.selected {
-        border: dashed;
-        border-color: #fff;
-        box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.2);
     }
 </style>
