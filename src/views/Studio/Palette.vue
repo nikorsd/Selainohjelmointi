@@ -1,12 +1,13 @@
 <template>
     <body>
         <div class="palette-wrapper">
-            <div v-for="(region, index) in regions" :key="index" :class="['region-box', { selected: selectedRegion === index }]" :style="{ backgroundColor: region.color }" @click="selectedRegion = index"></div>
+            <div v-for="(region, index) in regions" :key="index" :class="['region-box', { selected: selectedRegion === index }]" :style="{ backgroundColor: region.color }" @click="selectedRegion = selectedRegion === index ? null : index"></div>
         </div>
         <hr>
-        <div class="colorpicker">
+        <div v-if="selectedRegion != null" class="colorpicker">
             <div v-for="color in colors" :key="color.hex" class="color-swatch" :style="{ backgroundColor: color.hex }" @click="applyColor(color.hex)" :title="color.name"></div>
         </div>
+        <h1 v-else>Select a region</h1>
     </body>
 </template>
 
@@ -78,7 +79,9 @@
     }
 
     .region-box.selected {
-        border: 2.5px dashed #fff;
+        border-bottom: solid 10px;
+        border-top: solid 10px;
+        margin-bottom: -5px;
     }
 
     .colorpicker {
