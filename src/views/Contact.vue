@@ -1,5 +1,6 @@
 <template>
     <body>
+        <img class="banner" src="../assets/osao_kotkantie1.webp">
         <div class="card">
             <h3>Kirjoita meille viesti!</h3>
             <div class="contact-name-email">
@@ -54,7 +55,6 @@
     body {
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
         width: 100vw;
         height: 100vh;
@@ -88,5 +88,11 @@
 
     .btn-primary, .btn-secondary {
         margin-top: 10px;
+    }
+
+    .banner {
+        width: 100vw;
+        mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
     }
 </style>
