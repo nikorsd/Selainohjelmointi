@@ -21,8 +21,8 @@
                 <li class="nav-item">
                 <a class="nav-link" :class="{ active: currentRoute === '/gallery' }" @click="$router.push('/gallery')">Galleria</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <li class="nav-item dropdown" :class="{ show: currentRoute.includes('/studio') }">
+                    <a class="nav-link dropdown-toggle" :class="{ active: currentRoute.includes('/studio') }" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Studio
                     </a>
                     <ul class="dropdown-menu">

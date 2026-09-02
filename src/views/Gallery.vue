@@ -55,6 +55,7 @@
 
     .main-gallery {
         display: grid;
+        justify-content: center;
         width: 100vw;
         grid-template-columns: repeat(auto-fit, minmax(200px, 200px));
         gap: 10px;
