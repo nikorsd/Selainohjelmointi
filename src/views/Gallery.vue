@@ -26,13 +26,11 @@
     </body>
 </template>
 
+<style scoped src="../assets/styles/FlexBody.css"></style>
 <style scoped>
     body {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        width: 100vw;
         margin-bottom: 50px;
+        justify-content: initial;
     }
 
     h1 {

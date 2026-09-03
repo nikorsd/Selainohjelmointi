@@ -7,7 +7,7 @@
         <div v-if="selectedRegion != null" class="colorpicker">
             <div v-for="color in colors" :key="color.hex" class="color-swatch" :style="{ backgroundColor: color.hex }" @click="applyColor(color.hex)" :title="color.name"></div>
         </div>
-        <h1 v-else>Select a region</h1>
+        <h1 v-else>Valitse alue</h1>
     </body>
 </template>
 

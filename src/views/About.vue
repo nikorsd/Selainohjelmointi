@@ -13,14 +13,12 @@
     </body>
 </template>
 
+<style scoped src="../assets/styles/FlexBody.css"></style>
 <style scoped>
     body {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
         gap: 15px;
         text-align: center;
-        height: 100vh;
+        justify-content: initial;
     }
 
     div {

@@ -5,6 +5,7 @@ import About from '../views/About.vue'
 import WallStudio from '../views/Studio/Wall.vue'
 import PaletteStudio from '../views/Studio/Palette.vue'
 import Gallery from '../views/Gallery.vue'
+import Services from '../views/Services.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -39,6 +40,11 @@ const router = createRouter({
       path: '/gallery',
       name: 'gallery',
       component: Gallery
+    },
+    {
+      path: '/services',
+      name: 'services',
+      component: Services
     },
   ]
 })

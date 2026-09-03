@@ -10,8 +10,8 @@
             <hr>
             <p>Testaa meidän suunnittelu työkaluita!</p>
             <div>
-                <a class="btn primary" @click="$router.push('/studio/wall')">Seinien Suunnittelu Studio</a>
-                <a class="btn primary" @click="$router.push('/studio/palette')">Paletti Rakentaja</a>
+                <a class="btn btn-primary" @click="$router.push('/studio/wall')">Seinien Suunnittelu Studio</a>
+                <a class="btn btn-primary" @click="$router.push('/studio/palette')">Paletti Rakentaja</a>
             </div>
         </div>
         <div class="image">
@@ -20,13 +20,10 @@
     </body>
 </template>
 
+<style scoped src="../assets/styles/FlexBody.css"></style>
 <style scoped>
     body {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100vw;
-        height: 100vh;
+        flex-direction: initial;
         gap: 3vw;
         padding: 5%;
     }
@@ -52,14 +49,9 @@
     }
 
     .btn {
-        background-color: gray;
         color: white;
         margin-right: 8px;
         border-radius: 15px;
-    }
-
-    .btn:hover {
-        border: solid 1px;
     }
 
     @media (max-width: 1000px) {

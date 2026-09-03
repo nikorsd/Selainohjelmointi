@@ -1,15 +1,16 @@
 <template>
     <body>
         <img class="banner" src="../assets/osao_kotkantie1.webp">
-        <div class="card">
-            <h3>Kirjoita meille viesti!</h3>
+        <div class="form-wrapper">
+            <h1>Kirjoita meille viesti!</h1>
+            <hr style="width: 80vw;">
             <div class="contact-name-email">
                 <input class="form-control" @keydown="checkFields()" v-model="name" type="text" placeholder="Nimi">
                 <input class="form-control" @keydown="checkFields()" v-model="email" type="email" placeholder="Sähköposti">
             </div>
             <input class="form-control subject" @keydown="checkFields()" v-model="subject" type="text" placeholder="Aihe">
             <h5>Viestisi</h5>
-            <textarea name="Sähköposti" @keydown="checkFields()" v-model="message" id=""></textarea>
+            <textarea class="form-control message" @keydown="checkFields()" v-model="message" placeholder="Viesti"></textarea>
             <h5 v-if="showSuccess">Viesti lähetetty!</h5>
             <button v-else class="btn-primary btn" :disabled="disableButton" @click="send()">Lähetä</button>
         </div>
@@ -30,7 +31,6 @@
         },
         methods: {
             checkFields() {
-                console.debug("yes")
                 if (this.name && this.email && this.subject && this.message) {
                     console.debug("enabled")
                     this.disableButton = false
@@ -51,24 +51,25 @@
     }
 </script>
 
+<style scoped src="../assets/styles/FlexBody.css"></style>
 <style scoped>
     body {
+        gap: 15px;
+        text-align: center;
+        justify-content: initial;
+        height: auto;
+        min-height: 100vh;
+        padding-bottom: 50px;
+    }
+
+    .form-wrapper {
+        width: 80vw;
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 100vw;
-        height: 100vh;
-        color: white;
-    }
-
-    .card {
-        background-color: rgb(200, 200, 200);
-        padding: 2%;
-        border-radius: 25px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 2%;
+        gap: 15px;
+        padding-left: 20vw;
+        padding-right: 20vw;
     }
 
     .contact-name-email {
@@ -77,13 +78,22 @@
         margin-bottom: 15px;
     }
 
-    h3 {
-        text-align: center;
-    }
-
     h5 {
         text-align: center;
         margin-top: 15px;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 16px;
+    }
+
+    .form-control.message {
+        min-height: 120px;
+        resize: vertical;
     }
 
     .btn-primary, .btn-secondary {
