@@ -29,6 +29,7 @@
 <style scoped src="../assets/styles/FlexBody.css"></style>
 <style scoped>
     body {
+        min-height: 100vh;
         margin-bottom: 50px;
         justify-content: initial;
     }

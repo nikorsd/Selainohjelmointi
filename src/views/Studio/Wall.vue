@@ -1,7 +1,7 @@
 <template>
-    <body>
+    <main>
         <div class="img-wrapper">
-            <img :src="'/studio/' + room + '.png'" :style="{ backgroundColor }">
+            <img :src="'/studio/' + room + '.png'" :style="{ backgroundColor }" alt="Huoneen esikuva">
         </div>
         <select v-model="room" class="form-select" aria-label="Default select example">
             <option value="room1">Huone 1</option>
@@ -12,7 +12,7 @@
         <div class="colorpicker">
             <div v-for="color in colors" :key="color.hex" :class="['color-swatch', { selected: backgroundColor === color.hex }]" :style="{ backgroundColor: color.hex }" @click="backgroundColor = color.hex" :title="color.name"></div>
         </div>
-    </body>
+    </main>
 </template>
 
 <script setup>
@@ -43,33 +43,34 @@
 </script>
 
 <style scoped>
-    body {
+    main {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-        width: 100vw;
-        height: 100vh;
-        gap: 10px;
+        gap: 16px;
+        padding: 16px;
+        min-height: 100vh;
     }
 
     select {
-        width: 200px;
+        min-width: 200px;
+        min-height: 44px;
+        padding: 8px 12px;
+        font-size: 16px;
     }
 
     img {
         height: 50vh;
+        max-height: 400px;
         transition: background-color 0.5s ease-in-out, transform 0.1s ease-in-out;
-    }
-
-    img:hover {
-        transform: scale(1.10);
     }
 
     .img-wrapper {
         border-radius: 12px;
         border: 2.5px solid;
         overflow: hidden;
+        width: auto;
+        max-width: 400px;
     }
 
     .form-select {
@@ -78,32 +79,49 @@
 
     .colorpicker {
         display: grid;
-        grid-template-columns: repeat(8, 48px);
-        align-items: center;
+        grid-template-columns: repeat(auto-fill, minmax(44px, 1fr));
         justify-content: center;
-        gap: 12px;
+        gap: 10px;
+        width: 100%;
+        max-width: 500px;
     }
 
     .color-swatch {
-        width: 48px;
-        height: 48px;
+        aspect-ratio: 1;
         border-radius: 50%;
         cursor: pointer;
         transition: transform 0.1s ease, box-shadow 0.1s ease, box-shadow 0.15s ease-in;
         border: 3px solid transparent;
-    }
-
-    .color-swatch:hover {
-        transform: scale(1.10);
+        min-width: 36px;
     }
 
     .color-swatch:active {
-        transform: scale(1);
+        transform: scale(0.95);
     }
 
     .color-swatch.selected {
-        border: dashed;
         border-color: #fff;
         box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 480px) {
+        .wall-page {
+            padding: 12px;
+            gap: 12px;
+        }
+
+        img {
+            height: 35vh;
+            max-height: 280px;
+        }
+
+        .colorpicker {
+            grid-template-columns: repeat(6, 1fr);
+            gap: 6px;
+        }
+
+        .color-swatch {
+            min-width: 28px;
+        }
     }
 </style>

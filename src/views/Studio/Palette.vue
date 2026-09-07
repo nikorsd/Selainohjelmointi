@@ -1,5 +1,5 @@
 <template>
-    <body>
+    <main>
         <div class="palette-wrapper">
             <div v-for="(region, index) in regions" :key="index" :class="['region-box', { selected: selectedRegion === index }]" :style="{ backgroundColor: region.color }" @click="selectedRegion = selectedRegion === index ? null : index"></div>
         </div>
@@ -7,8 +7,8 @@
         <div v-if="selectedRegion != null" class="colorpicker">
             <div v-for="color in colors" :key="color.hex" class="color-swatch" :style="{ backgroundColor: color.hex }" @click="applyColor(color.hex)" :title="color.name"></div>
         </div>
-        <h1 v-else>Valitse alue</h1>
-    </body>
+        <h1 v-else class="hint">Valitse alue</h1>
+    </main>
 </template>
 
 <script setup>
@@ -52,21 +52,24 @@
 </script>
 
 <style scoped>
-    body {
+    main {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-        width: 100vw;
-        height: 100vh;
-        gap: 10px;
+        gap: 16px;
+        padding: 16px;
+        min-height: 100vh;
     }
 
     .palette-wrapper {
         display: flex;
-        width: 80vw;
-        height: 50vh;
+        width: 100%;
+        max-width: 600px;
+        height: 30vh;
+        max-height: 300px;
         border: 5px solid #000;
+        border-radius: 8px;
+        overflow: hidden;
     }
 
     .palette-wrapper > * {
@@ -76,6 +79,7 @@
     .region-box {
         transition: background-color 0.5s ease;
         cursor: pointer;
+        min-height: 60px;
     }
 
     .region-box.selected {
@@ -86,26 +90,50 @@
 
     .colorpicker {
         display: grid;
-        grid-template-columns: repeat(8, 48px);
-        align-items: center;
+        grid-template-columns: repeat(auto-fill, minmax(44px, 1fr));
         justify-content: center;
-        gap: 12px;
+        gap: 10px;
+        width: 100%;
+        max-width: 500px;
     }
 
     .color-swatch {
-        width: 48px;
-        height: 48px;
+        aspect-ratio: 1;
         border-radius: 50%;
         cursor: pointer;
         transition: transform 0.1s ease, box-shadow 0.1s ease, box-shadow 0.15s ease-in;
         border: 3px solid transparent;
-    }
-
-    .color-swatch:hover {
-        transform: scale(1.10);
+        min-width: 36px;
     }
 
     .color-swatch:active {
-        transform: scale(1);
+        transform: scale(0.95);
+    }
+
+    .hint {
+        color: #666;
+        font-size: 1rem;
+        margin: 8px 0;
+    }
+
+    @media (max-width: 480px) {
+        .palette-page {
+            padding: 12px;
+            gap: 12px;
+        }
+
+        .palette-wrapper {
+            height: 25vh;
+            max-height: 200px;
+        }
+
+        .colorpicker {
+            grid-template-columns: repeat(6, 1fr);
+            gap: 6px;
+        }
+
+        .color-swatch {
+            min-width: 28px;
+        }
     }
 </style>

@@ -1,7 +1,7 @@
 {
   "name": "selainohjelmointi-arvioitava",
   "private": true,
-  "version": "0.0.0",
+  "version": "260907",
   "type": "module",
   "scripts": {
     "dev": "vite",
