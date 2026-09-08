@@ -14,6 +14,12 @@
             <div v-if="showSuccess" class="success-message">Viesti lähetetty!</div>
             <button v-else class="btn-primary btn" :disabled="disableButton" @click="send()">Lähetä</button>
         </div>
+        <div class="contact-info">
+            <h2>Suorat yhteystiedot</h2>
+            <p>Kotkantie 3, 90100 Oulu</p>
+            <p>Puhelin: <a href="tel:+3584499988899">044 999 888 99</a></p>
+            <p>Sähköposti: <a href="mailto:info@kotkantienma.fi">info@kotkantienma.fi</a></p>
+        </div>
     </main>
 </template>
 
@@ -73,6 +79,18 @@
         align-items: center;
         gap: 15px;
         padding: 0 20px;
+    }
+
+    .contact-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        margin-top: 10px;
+    }
+
+    .contact-info a {
+        color: inherit;
     }
 
     .contact-name-email {

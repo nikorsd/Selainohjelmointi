@@ -1,5 +1,5 @@
 <template>
-    <body>
+    <main>
         <img src="../assets/osao_kotkantie1.webp">
         <div>
             <h1>Tietoa meistä</h1>
@@ -10,12 +10,12 @@
             <p>Panostamme siistiin työskentelyyn, luotettavuuteen ja hyvään asiakaspalveluun. Olipa kyseessä yksittäisen huoneen uudistaminen tai suurempi maalaus- ja tapetointiprojekti, tavoitteemme on tehdä lopputuloksesta kestävä ja viihtyisä.</p>
             <p>Kotkantien Maalaus- ja Tapetointi – pintaa, johon voit olla tyytyväinen.</p>
         </div>
-    </body>
+    </main>
 </template>
 
 <style scoped src="../assets/styles/FlexBody.css"></style>
 <style scoped>
-    body {
+    main {
         gap: 15px;
         text-align: center;
         justify-content: initial;

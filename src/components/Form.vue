@@ -96,26 +96,20 @@
 
     .form-container h2 {
         margin-top: 0;
-        margin-bottom: 20px;
-        font-size: 1.5rem;
+        margin-bottom: 16px;
+        font-size: 1.35rem;
     }
 
     .service-badge {
-        background-color: #e7f3ff;
-        border: 1px solid #b3d9ff;
-        border-radius: 8px;
-        padding: 12px 16px;
-        margin-bottom: 20px;
+        color: #555;
         font-size: 14px;
+        margin-bottom: 20px;
     }
 
     .summary {
-        background-color: #f0f9f0;
-        border: 1px solid #b3e6b3;
-        border-radius: 8px;
-        padding: 16px;
-        margin-bottom: 20px;
+        color: #333;
         line-height: 1.8;
+        margin-bottom: 20px;
     }
 
     .form-group {
@@ -124,22 +118,30 @@
 
     .form-group label {
         display: block;
-        margin-bottom: 5px;
-        font-weight: bold;
+        margin-bottom: 6px;
+        font-size: 0.9rem;
+        color: #333;
     }
 
     .form-group input,
     .form-group textarea {
         width: 100%;
-        padding: 12px;
-        border: 1px solid #ccc;
+        padding: 10px 12px;
+        border: 1px solid #ddd;
         border-radius: 8px;
         font-size: 16px; /* prevents iOS zoom on focus */
         box-sizing: border-box;
     }
 
+    .form-group input:focus,
+    .form-group textarea:focus {
+        outline: none;
+        border-color: #999;
+    }
+
     .form-group textarea {
-        min-height: 100px;
+        min-height: 90px;
+        resize: vertical;
     }
 
     .btn {
@@ -156,26 +158,17 @@
     }
 
     .btn-primary {
-        background-color: #007bff;
+        background-color: #1a1a1a;
         color: white;
     }
 
     .btn-primary:active {
-        background-color: #0056b3;
+        background-color: #000;
     }
 
     @media (max-width: 480px) {
         .form-container h2 {
-            font-size: 1.25rem;
-        }
-
-        .service-badge {
-            font-size: 13px;
-            padding: 10px 14px;
-        }
-
-        .summary {
-            padding: 12px;
+            font-size: 1.2rem;
         }
     }
 </style>

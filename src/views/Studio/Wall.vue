@@ -8,7 +8,6 @@
             <option value="room2">Huone 2</option>
             <option value="room3">Huone 3</option>
         </select>
-        <hr>
         <div class="colorpicker">
             <div v-for="color in colors" :key="color.hex" :class="['color-swatch', { selected: backgroundColor === color.hex }]" :style="{ backgroundColor: color.hex }" @click="backgroundColor = color.hex" :title="color.name"></div>
         </div>
@@ -53,15 +52,15 @@
     }
 
     select {
-        min-width: 200px;
-        min-height: 44px;
+        width: 200px;
         padding: 8px 12px;
         font-size: 16px;
     }
 
     img {
-        height: 50vh;
-        max-height: 400px;
+        width: 100%;
+        height: auto;
+        display: block;
         transition: background-color 0.5s ease-in-out, transform 0.1s ease-in-out;
     }
 
@@ -69,7 +68,7 @@
         border-radius: 12px;
         border: 2.5px solid;
         overflow: hidden;
-        width: auto;
+        width: 100%;
         max-width: 400px;
     }
 
@@ -110,9 +109,8 @@
             gap: 12px;
         }
 
-        img {
-            height: 35vh;
-            max-height: 280px;
+        .img-wrapper {
+            max-width: 100%;
         }
 
         .colorpicker {

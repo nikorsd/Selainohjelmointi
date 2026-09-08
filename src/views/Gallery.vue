@@ -15,7 +15,7 @@
 </script>
 
 <template>
-    <body>
+    <main>
         <img class="banner" src="../assets/osao_kotkantie1.webp">
         <h1>Galleria</h1>
         <hr style="width: 80vw;">
@@ -23,12 +23,12 @@
             <img class="preview" @click="previewImage = image" v-for="image in images" :src="image.src" :alt="image.alt">
         </div>
         <img class="big-preview" @click="previewImage = null" v-if="previewImage" :src="previewImage.src" :alt="previewImage.alt">
-    </body>
+    </main>
 </template>
 
 <style scoped src="../assets/styles/FlexBody.css"></style>
 <style scoped>
-    body {
+    main {
         min-height: 100vh;
         margin-bottom: 50px;
         justify-content: initial;

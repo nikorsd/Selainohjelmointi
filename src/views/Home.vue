@@ -1,5 +1,5 @@
 <template>
-    <body>
+    <main>
         <div class="description">
             <h1>Kotkantien maalaus- ja tapetointi</h1>
             <h2>Kotimaista suunnittelua</h2>
@@ -17,12 +17,12 @@
         <div class="image">
             <img src="../assets/home-unsplash.jpg" alt="">
         </div>
-    </body>
+    </main>
 </template>
 
 <style scoped src="../assets/styles/FlexBody.css"></style>
 <style scoped>
-    body {
+    main {
         flex-direction: initial;
         gap: 3vw;
         padding: 5%;
