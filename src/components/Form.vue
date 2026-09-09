@@ -74,7 +74,7 @@
 
     const formattedTime = computed(() => {
         if (!form.value.time) return '';
-        return form.value.time; // already HH:mm in 24h format
+        return form.value.time;
     });
 
     const submitForm = () => {
@@ -129,7 +129,7 @@
         padding: 10px 12px;
         border: 1px solid #ddd;
         border-radius: 8px;
-        font-size: 16px; /* prevents iOS zoom on focus */
+        font-size: 16px;
         box-sizing: border-box;
     }
 

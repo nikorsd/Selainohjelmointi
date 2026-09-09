@@ -38,10 +38,8 @@
         methods: {
             checkFields() {
                 if (this.name && this.email && this.subject && this.message) {
-                    console.debug("enabled")
                     this.disableButton = false
                 } else {
-                    console.debug("disabled")
                     this.disableButton = true
                 }
             },
@@ -161,7 +159,7 @@
         }
 
         .form-wrapper {
-            padding: 0 12px;
+            padding: 12px;
             gap: 12px;
         }
 

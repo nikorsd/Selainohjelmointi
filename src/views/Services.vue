@@ -36,13 +36,13 @@
 <template>
     <main class="services-page">
         <div v-for="service in services" :key="service.name" class="service-card">
-            <div class="service-card__image">
+            <div class="service-card-image">
                 <img :src="service.image" :alt="service.name" />
             </div>
-            <div class="service-card__body">
-                <h2 class="service-card__title">{{ service.name }}</h2>
-                <p class="service-card__description">{{ service.description }}</p>
-                <button class="btn btn-primary service-card__btn" @click="openService(service.name)">Osta</button>
+            <div class="service-card-body">
+                <h2 class="service-card-title">{{ service.name }}</h2>
+                <p class="service-card-description">{{ service.description }}</p>
+                <button class="btn btn-primary service-card-btn" @click="openService(service.name)">Osta</button>
             </div>
         </div>
 
@@ -77,19 +77,19 @@
         height: 500px;
     }
 
-    .service-card__image {
+    .service-card-image {
         height: 180px;
         overflow: hidden;
     }
 
-    .service-card__image img {
+    .service-card-image img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         display: block;
     }
 
-    .service-card__body {
+    .service-card-body {
         padding: 20px;
         display: flex;
         flex-direction: column;
@@ -97,13 +97,13 @@
         flex: 1;
     }
 
-    .service-card__title {
+    .service-card-title {
         margin: 0;
         font-size: 1.25rem;
         color: #1a1a1a;
     }
 
-    .service-card__description {
+    .service-card-description {
         margin: 0;
         color: #666;
         line-height: 1.5;
@@ -111,7 +111,7 @@
         flex: 1;
     }
 
-    .service-card__btn {
+    .service-card-btn {
         margin-top: auto;
         width: 100%;
         min-height: 44px;
